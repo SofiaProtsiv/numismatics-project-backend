@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "1.0.1",
+    "title": "Ivana Prudko - an expert in numismatics"
+  },
+  "consumers": ["application/json"],
+  "producers": ["application/json"],
+  "servers": [{ "url": "domen" }, { "url": "http://localhost:3000/" }],
+  "tags": [
+    {
+      "name": "Application",
+      "description": "Application endpoints"
+    }
+  ],
+  "paths": {
+    "/api/application": {
+      "post": {
+        "tags": ["Application"],
+        "summary": "Application creation",
+        "parameters": [],
+        "requestBody": {
+          "description": "Application form for Ivana Prudko - an expert in numismatics",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateApplicationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Application sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateApplicationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "A required field is probably missing or invalid data transmitted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateApplicationRequest": {
+        "type": "object",
+        "required": ["name", "phone", "service"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Ivana Prudko"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+380950000000",
+            "description": "Must match this format +380950000000"
+          },
+          "service": {
+            "type": "string",
+            "description": "Service type",
+            "enum": [
+              "Консультації з нумізматики",
+              "Консультації з питань колекціонування",
+              "Консультації з формування колекцій"
+            ],
+            "example": "Консультації з нумізматики"
+          },
+          "question": {
+            "type": "string",
+            "example": "Here is a question connected with the application"
+          }
+        }
+      },
+      "CreateApplicationResponse": {
+        "type": "object",
+        "required": ["name", "phone", "service"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Ivana Prudko"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+380950000000",
+            "description": "Must match this format +380950000000"
+          },
+          "service": {
+            "type": "string",
+            "description": "Service type",
+            "enum": [
+              "Консультації з нумізматики",
+              "Консультації з питань колекціонування",
+              "Консультації з формування колекцій"
+            ],
+            "example": "Консультації з нумізматики"
+          },
+          "question": {
+            "type": "string",
+            "example": "Here is a question connected with the application"
+          }
+        }
+      },
+      "BadRequestResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "\"name\" is required"
+          }
+        }
+      }
+    }
+  }
+}
