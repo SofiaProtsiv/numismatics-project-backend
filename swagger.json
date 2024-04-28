@@ -6,7 +6,10 @@
   },
   "consumers": ["application/json"],
   "producers": ["application/json"],
-  "servers": [{ "url": "domen" }, { "url": "http://localhost:3000/" }],
+  "servers": [
+    { "url": "https://numismatics-project-backend.onrender.com/" },
+    { "url": "http://localhost:3000/" }
+  ],
   "tags": [
     {
       "name": "Application",
