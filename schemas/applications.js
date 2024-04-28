@@ -27,10 +27,6 @@ const addApplicationSchema = Joi.object({
     "any.required": '"Service type" is required',
     "any.only": `Service can only be of the following types: ${servicesList} `,
   }),
-
-  question: Joi.string().max(1000).messages({
-    "string.max": `"question" should have a maximum length of {#limit}`,
-  }),
 });
 
 module.exports = {
