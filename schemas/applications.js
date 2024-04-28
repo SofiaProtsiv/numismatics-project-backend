@@ -27,6 +27,7 @@ const addApplicationSchema = Joi.object({
     "any.required": '"Service type" is required',
     "any.only": `Service can only be of the following types: ${servicesList} `,
   }),
+  question: Joi.string(),
 });
 
 module.exports = {
