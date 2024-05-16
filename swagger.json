@@ -9,6 +9,7 @@
   "servers": [
     { "url": "https://numismatics-project-backend.onrender.com/" },
     { "url": "http://localhost:3000/" }
+    { "url": "https://api.prudko.com.ua/" }
   ],
   "tags": [
     {
